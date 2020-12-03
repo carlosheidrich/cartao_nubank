@@ -140,7 +140,7 @@ class NubankFrente extends StatelessWidget {
                       left: 40,
                       top: 190,
                       child: Text(
-                        '9999 9999 9999 9999',
+                        '9999 9999 9999 9996',
                         style: TextStyle(
                           fontSize: 22,
                           color: Colors.white,
