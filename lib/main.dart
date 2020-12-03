@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: NubankVerso(),
+      home: NubankFrente(),
     );
   }
 }
@@ -35,7 +35,6 @@ class NubankFrente extends StatelessWidget {
                 if (frente) {
                   frente = false;
                   NubankVerso();
-                  
                 } else {
                   frente = true;
                   NubankFrente();
@@ -55,60 +54,101 @@ class NubankFrente extends StatelessWidget {
         child: Center(
           child: AspectRatio(
             aspectRatio: 8.5 / 5.4,
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(97, 47, 116, 1),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Stack(
-                children: [
-                  Positioned(
-                    right: 10,
-                    top: 10,
-                    child: Image.asset(
-                      'assets/mastercard.png',
-                      width: 90,
+            child: FlipCard(
+              direction: FlipDirection.VERTICAL, // default
+              front: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(97, 47, 116, 1),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      right: 10,
+                      top: 10,
+                      child: Image.asset(
+                        'assets/mastercard.png',
+                        width: 90,
+                      ),
                     ),
-                  ),
-                  Positioned(
-                    left: 40,
-                    top: 90,
-                    child: Image.asset(
-                      'assets/chip.png',
-                      width: 60,
+                    Positioned(
+                      left: 40,
+                      top: 90,
+                      child: Image.asset(
+                        'assets/chip.png',
+                        width: 60,
+                      ),
                     ),
-                  ),
-                  Positioned(
-                    left: 110,
-                    top: 100,
-                    child: Image.asset(
-                      'assets/nfc.png',
-                      width: 30,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Positioned(
-                    left: 20,
-                    top: 130,
-                    child: Image.asset(
-                      'assets/nu_logo.png',
-                      width: 120,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Positioned(
-                    left: 150,
-                    top: 190,
-                    child: Text(
-                      'Carlos A Heidrich',
-                      style: TextStyle(
-                        fontSize: 22,
+                    Positioned(
+                      left: 110,
+                      top: 100,
+                      child: Image.asset(
+                        'assets/nfc.png',
+                        width: 30,
                         color: Colors.white,
                       ),
                     ),
-                  ),
-                ],
+                    Positioned(
+                      left: 20,
+                      top: 130,
+                      child: Image.asset(
+                        'assets/nu_logo.png',
+                        width: 120,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Positioned(
+                      left: 150,
+                      top: 190,
+                      child: Text(
+                        'Carlos A Heidrich',
+                        style: TextStyle(
+                          fontSize: 22,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              back: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(97, 47, 116, 1),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      top: 20,
+                      child: Container(
+                        width: 400,
+                        height: 80,
+                        color: Colors.white70,
+                      ),
+                    ),
+                    Positioned(
+                      right: 15,
+                      bottom: 15,
+                      child: Image.asset(
+                        'assets/cirrus.png',
+                        width: 80,
+                      ),
+                    ),
+                    Positioned(
+                      left: 40,
+                      top: 190,
+                      child: Text(
+                        '9999 9999 9999 9999',
+                        style: TextStyle(
+                          fontSize: 22,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
